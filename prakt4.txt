@@ -1,0 +1,97 @@
+namespace prakt4
+
+{
+
+class Program
+
+{
+
+static void Main(string[] args)
+
+{
+
+a:
+
+Console.WriteLine("Введіть ваше речення:");
+
+string text = Console.ReadLine();
+
+if (string.IsNullOrEmpty(text) || string.IsNullOrWhiteSpace(text))
+
+{
+
+Console.WriteLine("Помилка!");
+
+goto a;
+
+}
+
+else
+
+{
+
+b:
+
+Console.WriteLine("Введіть букву для пошуку слів");
+
+string key = Console.ReadLine();
+
+if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))
+
+{
+
+Console.WriteLine("Помилка!");
+
+goto b;
+
+}
+
+else
+
+{
+
+var text1 = text.Trim(',', '.','?','!','-');
+
+string[] txtarr = text1.Split(' ',(char)StringSplitOptions.RemoveEmptyEntries);
+
+int n = 0;
+
+for(int i =0; i<txtarr.Length; i++)
+
+{
+
+key = key.ToLower();
+
+string word = txtarr[i].ToLower();
+
+if (word.StartsWith(key))
+
+{
+
+Console.Write(txtarr[i] + ", ");
+
+n++;
+
+}
+
+}
+
+if (n == 0)
+
+{
+
+Console.WriteLine("Помилка! Слів, що починаются з даного символа не знайдено!");
+
+}
+
+}
+
+}
+
+Console.ReadLine();
+
+}
+
+}
+
+}

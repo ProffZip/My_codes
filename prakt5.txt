@@ -1,0 +1,147 @@
+namespace prakt5
+
+{
+
+class Program
+
+{
+
+enum Firm : byte
+
+{
+
+Not = 0b00000000,
+
+Оболонь = 0b00000001,
+
+Епіцентр = 0b00000010,
+
+Мікротек = 0b00000100,
+
+Рогань = 0b00001000,
+
+Вестрон = 0b00010000,
+
+Електроважмаш = 0b00100000,
+
+Харків = 0b00111000,
+
+Київ = 0b00000111
+
+}
+
+static void Main(string[] args)
+
+{
+
+a:
+
+Console.WriteLine("Введіть номери фірм що вам відомі через кому(,):");
+
+Console.WriteLine("1. Оболонь \n2. Епіцентр \n3. Мікротек \n4. Рогань \n5. Вестрон \n6. Електроважмаш");
+
+string firm1 = Console.ReadLine();
+
+firm1.Trim(' ');
+
+string[] firm = firm1.Split(',') ;
+
+Console.WriteLine("\n\nАвтор програми: Іван Матвієнко");
+
+Console.WriteLine("\nФірми Києва:");
+
+for (int i = 0; i < firm.Length; i++)
+
+{
+
+int firmp = Convert.ToInt32(firm[i]);
+
+int f = (int)Math.Pow(2, firmp - 1);
+
+if (((Firm)f & Firm.Київ) != 0)
+
+{
+
+string p = f.ToString();
+
+switch (f)
+
+{
+
+case (int)Firm.Оболонь:
+
+Console.WriteLine("Оболонь");
+
+break;
+
+case (int)Firm.Епіцентр:
+
+Console.WriteLine("Епіцентр");
+
+break;
+
+case (int)Firm.Мікротек:
+
+Console.WriteLine("Мікротек");
+
+break;
+
+}
+
+}
+
+}
+
+Console.WriteLine("\nФірми Харкова:");
+
+for (int i = 0; i < firm.Length; i++)
+
+{
+
+int firmp = Convert.ToInt32(firm[i]);
+
+int f = (int)Math.Pow(2, firmp - 1);
+
+if (((Firm)f & Firm.Харків) != 0)
+
+{
+
+string p = f.ToString();
+
+switch (f)
+
+{
+
+case (int)Firm.Рогань:
+
+Console.WriteLine("Рогань");
+
+break;
+
+case (int)Firm.Вестрон:
+
+Console.WriteLine("Вестрон");
+
+break;
+
+case (int)Firm.Електроважмаш:
+
+Console.WriteLine("Електроважмаш");
+
+break;
+
+}
+
+}
+
+}
+
+Console.ReadLine();
+
+goto a;
+
+}
+
+}
+
+}
