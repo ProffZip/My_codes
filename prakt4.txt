@@ -12,7 +12,7 @@ static void Main(string[] args)
 
 a:
 
-Console.WriteLine("Введіть ваше речення:");
+Console.WriteLine("Введіть своє речення:");
 
 string text = Console.ReadLine();
 
@@ -32,7 +32,7 @@ else
 
 b:
 
-Console.WriteLine("Введіть букву для пошуку слів");
+Console.WriteLine("Введіть букву для пошуку необхідних слів");
 
 string key = Console.ReadLine();
 
